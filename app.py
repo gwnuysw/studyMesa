@@ -26,7 +26,6 @@ model_params = {
     "height": 10,
 }
 
-
 def post_process(ax):
     ax.set_aspect("equal")
     ax.set_xticks([])
@@ -36,12 +35,10 @@ def post_process(ax):
 # Create initial model instance
 model = NeuralNet(10, 10)
 
-
 SpaceGraph = make_space_component(
     agent_portrayal, post_process=post_process
 )
-CreaturePlot = make_plot_component({"Fullness":"#FE6100", "Food":"#648FFF"})
-
+CreaturePlot = make_plot_component({"Fullness":"#FE6100", "Predator":"#FF0000"})
 
 page = SolaraViz(
     model,

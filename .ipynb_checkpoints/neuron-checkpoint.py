@@ -8,7 +8,7 @@ class Neuron(Agent):
         self.threshold = 50
         self.fire = False
     
-    def resetPotential():
+    def resetPotential(self):
         if self.fire:
             self.potential = 0
 
@@ -16,36 +16,32 @@ class eatingCell(Neuron):
 
     def __init__(self, model, creature):
         super().__init__(model)
-
-    def step():
-        if self..threshold < self.potential:
+        self.creature = creature
+    def step(self):
+        if self.threshold < self.potential:
             self.fire = True
-            self.creature.fullness += 5
+            self.creature.fullness += 10
+            self.resetPotential()
         else:
-            sel.fire = False
+            self.fire = False
             
 class hungerSensingCell(Neuron):
     def __init__(self, model, creature):
         super().__init__(model)
-        
-    def step():
+        self.creature = creature
+    def step(self):
         if self.creature.fullness <= 20:
-            self.fire = Ture
+            self.fire = True
         else:
             self.fire = False
 
 class predatorSensingCell(Neuron):
     def __init__(self, model, creature):
         super().__init__(model)
-        
-    def isPredator(predatorFlag):
-        if predatorFlag:
-            self.potential += 20
-        else:
-            self.potential -= 20
-            
-    def step():
-        if self.threshold < potential:
+        self.creature = creature
+
+    def step(self):
+        if self.creature.predator == 1:
             self.fire = True
         else:
             self.fire = False
